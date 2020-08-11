@@ -1,0 +1,52 @@
+import os
+import glob
+import cv2 as cv
+import requests
+from bs4 import BeautifulSoup
+import urllib.request
+import random
+import streamlit as st
+from PIL import Image
+import pandas as pd
+from io import BytesIO
+#chobb scrapped from site
+
+# all images in 'images' folder
+#images = [image for image in glob.glob(os.path.join(r"C:\Users\admin\Desktop\projects\juggling\im", "*.jpg"))]
+cs = ["RF","RN"]
+cstyle = ["Starry night", "Sunflower"]
+
+st.sidebar.title("The AI Art Gallery")
+#selected_image = st.sidebar.selectbox("Pick an image.", images)
+cm = st.sidebar.selectbox("Pick an image", cs)
+cd = st.sidebar.selectbox("Pick a style", cstyle)
+
+
+
+ind = 1
+
+if st.sidebar.button('Display Input Image'):
+    if cm == "RF":
+        st.write("Input Image")
+        image2 = Image.open(r"C:\Users\admin\Downloads\rf.jpg")
+        st.image(image2)
+    if cm == "RN":
+        st.write("Input Image")
+        image2 = Image.open(r"C:\Users\admin\Downloads\nadal.jpg")
+        st.image(image2)
+
+if st.sidebar.button('Display Style'):
+    if cd == "Starry night":
+        st.write("Input Style")
+        image2 = Image.open(r"C:\Users\admin\Downloads\sn.jpg")
+        st.image(image2)
+        
+if st.sidebar.button('Display Art'):
+    if cm == "RF" and cd == "Starry night":
+        st.write("AI Art")
+        image2 = Image.open(r"C:\Users\admin\Downloads\d1.jpg")
+        st.image(image2)
+    if cm == "RN":
+        st.write("AI Art")
+        image2 = Image.open(r"C:\Users\admin\Downloads\d2.jpg")
+        st.image(image2)
